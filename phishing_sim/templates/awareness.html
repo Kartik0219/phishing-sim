@@ -6,22 +6,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Security Awareness - Simulated Phishing Exercise</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Segoe UI, Roboto, sans-serif; background: #f0f2f5;
-         display: flex; align-items: center; justify-content: center;
-         min-height: 100vh; }
-  .card { background: white; border-radius: 8px; padding: 2.5rem 2rem;
-          max-width: 560px; box-shadow: 0 2px 10px rgba(0,0,0,.12); }
-  .banner { background: #cf222e; color: white; border-radius: 4px;
-            padding: .75rem 1rem; font-weight: 600; margin-bottom: 1.5rem;
-            display: flex; align-items: center; gap: .6rem; }
-  h1 { font-size: 1.3rem; color: #1b1f23; margin-bottom: .75rem; }
-  p { color: #444; line-height: 1.6; margin-bottom: .9rem; }
-  ul { padding-left: 1.25rem; color: #444; line-height: 1.8; }
-  .tips { background: #f6f8fa; border-left: 3px solid #0f4c82;
-          padding: 1rem 1.2rem; border-radius: 0 4px 4px 0;
-          margin-top: 1.25rem; }
-  .tips h2 { font-size: 1rem; color: #1b1f23; margin-bottom: .5rem; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    background: #f5f5f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  .card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 2.25rem 2rem;
+    max-width: 560px;
+    width: 100%;
+    box-shadow: 0 4px 24px rgba(0,0,0,.09);
+  }
+  .banner {
+    background: #ff3b30;
+    color: #fff;
+    border-radius: 10px;
+    padding: 0.75rem 1.1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #1d1d1f;
+    margin-bottom: 0.85rem;
+  }
+  p {
+    font-size: 0.92rem;
+    color: #3a3a3c;
+    line-height: 1.65;
+    margin-bottom: 0.9rem;
+  }
+  ul {
+    padding-left: 1.25rem;
+    font-size: 0.92rem;
+    color: #3a3a3c;
+    line-height: 1.9;
+  }
+  .tips {
+    background: #f5f5f7;
+    border-left: 3px solid #0071e3;
+    padding: 1.1rem 1.25rem;
+    border-radius: 0 10px 10px 0;
+    margin-top: 1.25rem;
+  }
+  .tips h2 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6e6e73;
+    margin-bottom: 0.6rem;
+  }
 </style>
 </head>
 <body>
@@ -46,7 +96,7 @@
       <li>Hover over links before clicking to see the real destination URL</li>
       <li>Unexpected urgency ("Your account will be locked!") is a red flag</li>
       <li>When in doubt, navigate to the service directly rather than clicking</li>
-      <li>Use a password manager - it won't auto-fill on fake domains</li>
+      <li>Use a password manager — it won't auto-fill on fake domains</li>
     </ul>
   </div>
 </div>

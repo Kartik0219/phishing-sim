@@ -144,36 +144,108 @@ _HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Phishing Simulation Report - {name}</title>
 <style>
-  body {{ font-family: -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; color: #1b1f23; }}
-  h1 {{ margin-bottom: .2rem; }}
-  h2 {{ margin-top: 2rem; font-size: 1.05rem; color: #57606a; }}
-  .meta {{ color: #57606a; margin-bottom: 1.5rem; }}
-  .kpis {{ display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }}
-  .kpi {{ background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
-           padding: .75rem 1.25rem; min-width: 130px; }}
-  .kpi .val {{ font-size: 1.6rem; font-weight: 700; }}
-  .kpi .label {{ font-size: .8rem; color: #57606a; }}
-  .kpi.danger .val {{ color: #cf222e; }}
-  .kpi.warn .val {{ color: #9a6700; }}
-  .kpi.ok .val {{ color: #1a7f37; }}
-  .charts {{ display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }}
-  .charts img {{ max-width: 100%; border: 1px solid #d0d7de; border-radius: 6px; }}
-  table {{ border-collapse: collapse; width: 100%; margin-top: 1rem; }}
-  th, td {{ border: 1px solid #d0d7de; padding: .5rem .75rem; text-align: left; }}
-  th {{ background: #f6f8fa; }}
-  tr.submitted {{ background: #ffeef0; }}
-  tr.clicked {{ background: #fff8e6; }}
-  .rec {{ border-left: 4px solid {rec_color}; background: #f6f8fa;
-          padding: .9rem 1rem; border-radius: 0 4px 4px 0; margin-top: 1rem; }}
+  *, *::before, *::after {{ box-sizing: border-box; }}
+  body {{
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    background: #f5f5f7;
+    margin: 0;
+    padding: 2.5rem 1.5rem 5rem;
+    color: #1d1d1f;
+    -webkit-font-smoothing: antialiased;
+  }}
+  .container {{ max-width: 1040px; margin: 0 auto; }}
+  h1 {{
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.4rem;
+  }}
+  h2 {{
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #6e6e73;
+    margin: 2.5rem 0 0.8rem;
+  }}
+  .meta {{
+    font-size: 0.88rem;
+    color: #6e6e73;
+    margin: 0 0 1rem;
+  }}
+  .lab-banner {{
+    background: #1d1d1f;
+    color: rgba(255,255,255,.82);
+    padding: 0.55rem 1.1rem;
+    font-size: 0.78rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    letter-spacing: 0.01em;
+  }}
+  .kpis {{ display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.5rem; }}
+  .kpi {{
+    background: #fff;
+    border-radius: 14px;
+    padding: 1rem 1.5rem;
+    min-width: 130px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  }}
+  .kpi .val {{
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }}
+  .kpi .label {{ font-size: 0.75rem; color: #6e6e73; margin-top: 0.3rem; }}
+  .kpi.danger .val {{ color: #ff3b30; }}
+  .kpi.warn .val   {{ color: #ff9500; }}
+  .kpi.ok .val     {{ color: #34c759; }}
+  .card {{
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 14px rgba(0,0,0,.06);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }}
+  .charts {{ display: flex; flex-wrap: wrap; gap: 1rem; padding: 1.5rem; }}
+  .charts img {{ max-width: 100%; border-radius: 10px; }}
+  table {{ border-collapse: collapse; width: 100%; font-size: 0.88rem; }}
+  th {{
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6e6e73;
+    padding: 0.85rem 1.25rem;
+    text-align: left;
+    background: #fafafa;
+    border-bottom: 1px solid #f0f0f0;
+    white-space: nowrap;
+  }}
+  td {{
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid #f5f5f7;
+    vertical-align: top;
+  }}
+  tr:last-child td {{ border-bottom: none; }}
+  tr.submitted {{ background: rgba(255,59,48,.045); }}
+  tr.clicked   {{ background: rgba(255,149,0,.045); }}
+  .rec {{
+    background: #fff;
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    border-left: 4px solid {rec_color};
+  }}
   .rec strong {{ color: {rec_color}; }}
-  .lab-banner {{ background: #1b1f23; color: #f0f2f5; padding: .5rem 1rem;
-                 font-size: .8rem; border-radius: 4px; margin-bottom: 1.5rem; }}
 </style>
 </head>
 <body>
-  <div class="lab-banner">LAB SIMULATION - Authorized security-awareness exercise only -
+<div class="container">
+  <div class="lab-banner">LAB SIMULATION &mdash; Authorized security-awareness exercise only &mdash;
     No real credentials were captured.</div>
   <h1>Phishing Simulation Report</h1>
   <p class="meta">Campaign: <strong>{name}</strong> &middot; Template: {template}
@@ -186,16 +258,19 @@ _HTML = """<!DOCTYPE html>
   </div>
 
   <h2>Overview</h2>
-  <div class="charts">{charts}</div>
+  <div class="card"><div class="charts">{charts}</div></div>
 
   <h2>Recipient detail</h2>
-  <table>
-    <thead><tr><th>Name</th><th>Email</th><th>Clicked at</th><th>Submitted at</th></tr></thead>
-    <tbody>{rows}</tbody>
-  </table>
+  <div class="card">
+    <table>
+      <thead><tr><th>Name</th><th>Email</th><th>Clicked at</th><th>Submitted at</th></tr></thead>
+      <tbody>{rows}</tbody>
+    </table>
+  </div>
 
   <h2>Training recommendation</h2>
   <div class="rec"><strong>{rec_level}</strong> &mdash; {rec_text}</div>
+</div>
 </body>
 </html>
 """
