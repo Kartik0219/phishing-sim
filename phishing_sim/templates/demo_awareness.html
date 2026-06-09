@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- LAB SIMULATION ONLY - PORTFOLIO DEMO AWARENESS PAGE -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security Awareness - Simulated Phishing Exercise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #2b2b2b; --card: #383838; --surface: #323232; --border: rgba(255,255,255,.08);
+    --text: #f2f2f2; --muted: #8a8a8a;
+    --orange: #ff6b35; --orange-lt: #ff8656;
+    --radius: 10px;
+  }
+  body {
+    font-family: 'Inter', -apple-system, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2.25rem 2rem;
+    max-width: 560px;
+    width: 100%;
+    box-shadow: 0 2px 16px rgba(0,0,0,.45);
+  }
+  .banner {
+    background: rgba(255,107,53,.13);
+    color: var(--orange-lt);
+    border: 1px solid rgba(255,107,53,.24);
+    border-radius: var(--radius);
+    padding: 0.75rem 1.1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+  }
+  p {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 0.9rem;
+  }
+  ul {
+    padding-left: 1.25rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+  .tips {
+    background: var(--surface);
+    border-left: 3px solid var(--orange);
+    padding: 1.1rem 1.25rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin-top: 1.25rem;
+  }
+  .tips h2 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--orange-lt);
+    margin-bottom: 0.6rem;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="banner">
+    <span>&#9888;</span> This was a simulated phishing exercise
+  </div>
+  <h1>You were caught by a phishing simulation</h1>
+  <p>
+    The login page you just visited was not real. It was part of an authorized
+    security-awareness exercise. No credentials were stored or transmitted.
+  </p>
+  <p>
+    Phishing emails are the number-one delivery method for ransomware and
+    credential theft. Taking a moment to verify a link before clicking can
+    prevent a breach.
+  </p>
+  <div class="tips">
+    <h2>How to spot a phishing attempt</h2>
+    <ul>
+      <li>Check the sender's full email address, not just the display name</li>
+      <li>Hover over links before clicking to see the real destination URL</li>
+      <li>Unexpected urgency ("Your account will be locked!") is a red flag</li>
+      <li>When in doubt, navigate to the service directly rather than clicking</li>
+      <li>Use a password manager — it won't auto-fill on fake domains</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

@@ -66,11 +66,11 @@ def create_demo_app() -> Flask:
 
     @app.route("/")
     def demo():
-        return render_template("it_portal.html", token="demo", demo=True)
+        return render_template("demo_portal.html", token="demo")
 
     @app.route("/submit/<token>", methods=["POST"])
     def demo_submit(token: str):
-        return render_template("awareness.html")
+        return render_template("demo_awareness.html")
 
     @app.route("/health")
     def health():

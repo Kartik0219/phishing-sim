@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- LAB SIMULATION ONLY - PORTFOLIO DEMO, NOT A REAL LOGIN PAGE -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IT Portal - Sign In (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #2b2b2b; --card: #383838; --border: rgba(255,255,255,.08);
+    --text: #f2f2f2; --muted: #8a8a8a;
+    --orange: #ff6b35; --orange-lt: #ff8656;
+    --radius: 10px;
+  }
+  body {
+    font-family: 'Inter', -apple-system, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    padding: 1rem;
+  }
+  .demo-banner {
+    background: rgba(255,107,53,.13);
+    color: var(--orange-lt);
+    border: 1px solid rgba(255,107,53,.24);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.65rem 1.1rem;
+    letter-spacing: -0.01em;
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    max-width: 340px;
+    width: 100%;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2.75rem 2.25rem 2.25rem;
+    width: 340px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.45);
+  }
+  .logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 0.2rem;
+  }
+  .logo span { font-weight: 400; color: var(--muted); }
+  .subtitle {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+  }
+  label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+    margin-top: 1rem;
+    letter-spacing: 0.01em;
+  }
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color .15s;
+    background: var(--bg);
+    color: var(--text);
+  }
+  input::placeholder { color: var(--muted); }
+  input:focus { border-color: var(--orange); }
+  button {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.7rem;
+    background: var(--orange);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  button:hover { background: var(--orange-lt); }
+  .footer { margin-top: 1.1rem; font-size: 0.78rem; color: var(--muted); text-align: center; }
+  a { color: var(--orange-lt); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="demo-banner">Portfolio demo &mdash; this is a simulated phishing page. Do not enter real credentials.</div>
+<div class="card">
+  <div class="logo">IT <span>Portal</span></div>
+  <p class="subtitle">Sign in with your corporate account</p>
+  <form method="POST" action="/submit/{{ token }}">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" autocomplete="username"
+           placeholder="you@example.com" required>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" autocomplete="current-password"
+           placeholder="Password" required>
+    <button type="submit">Sign in</button>
+  </form>
+  <p class="footer">Forgot your password? <a href="#">Reset it</a></p>
+</div>
+</body>
+</html>
