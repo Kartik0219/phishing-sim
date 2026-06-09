@@ -80,9 +80,21 @@
   .footer { margin-top: 1.1rem; font-size: 0.78rem; color: #6e6e73; text-align: center; }
   a { color: #0071e3; text-decoration: none; }
   a:hover { text-decoration: underline; }
+  .demo-banner {
+    background: #ff3b30;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    letter-spacing: -0.01em;
+  }
 </style>
 </head>
 <body>
+{% if demo %}
+<div class="demo-banner">Portfolio demo &mdash; this is a simulated phishing page. Do not enter real credentials.</div>
+{% endif %}
 <div class="card">
   <div class="logo">IT <span>Portal</span></div>
   <p class="subtitle">Sign in with your corporate account</p>

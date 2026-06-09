@@ -53,3 +53,27 @@ def create_app(conn: sqlite3.Connection) -> Flask:
         return {"status": "ok"}, 200
 
     return app
+
+
+def create_demo_app() -> Flask:
+    """Return a standalone Flask app for the public portfolio demo.
+
+    Serves the simulated login page with a clear "demo" disclaimer and the
+    awareness page on submit. No database, no tracking tokens, no recipient
+    data - purely illustrative of what a phishing simulation looks like.
+    """
+    app = Flask(__name__, template_folder="templates")
+
+    @app.route("/")
+    def demo():
+        return render_template("it_portal.html", token="demo", demo=True)
+
+    @app.route("/submit/<token>", methods=["POST"])
+    def demo_submit(token: str):
+        return render_template("awareness.html")
+
+    @app.route("/health")
+    def health():
+        return {"status": "ok"}, 200
+
+    return app
